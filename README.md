@@ -119,9 +119,120 @@ A simple Skills List App in Vue JS
 
 ## Vue Styling
 
+1. Add sample style code in Skills.vue file
 
+        <style scoped>
 
+          .holder {
+            background: #fff;
+          }
 
+          ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+          }
+
+          ul li {
+            padding: 20px;
+            font-size: 1.3em;
+            background-color: #E0EDF4;
+            border-left: 5px solid #3EB3F6;
+            margin-bottom: 2px;
+            color: #3E5252;
+          }
+
+          p {
+            text-align:center;
+            padding: 30px 0;
+            color: gray;
+          }
+
+          .container {
+            box-shadow: 0px 0px 40px lightgray;
+          }
+
+        </style>
+     
+2. Add sample style code in App.vue
+
+        <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+        body {
+          background-color: #EEEEEE;
+          font-family: 'Montserrat', sans-serif;
+          display: grid;
+          grid-template-rows: auto;
+          justify-items: center;
+          align-items: center;
+        }
+        body, html {
+          margin: 0;
+          height: 100%;
+        }
+        #app {
+            width: 50%;
+        }
+        </style>
+
+## Vue Forms
+
+1. Add form in the template area
+
+        <form @submit.prevent="addSkill">
+                <input type="text" placeholder="Enter a skill you have.."  v-model="skill">
+        </form>
+2. Add method in Scripts section
+
+          // Add this section:
+          methods : {
+              addSkill(){
+                  this.skills.push({skill: this.skill});
+                  this.skill = '';
+              }
+          }
+
+###### Vue Form Validation
+1. install validator in the project  
+        npm add vee-validate
+        
+2. Import vee-validate in main.js file
+
+        import VeeValidate from 'vee-validate';  // Add this
+        Vue.use(VeeValidate);  // Add this
+3. Next, in /src/components/Skills.vue, modify the template:
+
+        <input type="text" placeholder="Enter a skill you have.." v-model="skill" v-validate="'min:5'" name="skill">
+        <p class="alert" v-if="errors.has('skill')">{{ errors.first('skill') }}</p>
+        
+4. Add a CSS ruleset for .alert:
+
+        .alert {
+            background: #fdf2ce;
+            font-weight: bold;
+            display: inline-block;
+            padding: 5px;
+            margin-top: -20px;
+          }
+          
+5. it will still allow you to submit the form despite entering less than 5 characters.  
+
+We can fix that by modifying the addSkill() method:
+
+        addSkill() {
+        this.$validator.validateAll().then((result) => {
+          if (result) {
+            this.skills.push({skill: this.skill});
+            this.skill = '';
+          } else {
+            console.log('Not valid');
+          }
+        })
+      }
+      
+
+        
  
  
 
