@@ -1,2 +1,2 @@
-# Vue-SkillsList-Project
+# Vue-SkillList-Project
 A simple Skills List App in Vue JS
