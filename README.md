@@ -231,6 +231,122 @@ We can fix that by modifying the addSkill() method:
         })
       }
       
+###### Vue Animations
+
+1. Add these 3 line
+
+        <transition name="alert-in">
+                <p class="alert" v-if="errors.has('skill')">{{ errors.first('skill') }}</p>
+        </transition>
+        
+2. Add in CSS section
+
+        .alert-in-enter-active {
+          animation: bounce-in .5s;
+        }
+        .alert-in-leave-active {
+          animation: bounce-in .5s reverse;
+        }
+        @keyframes bounce-in {
+          0% {
+            transform: scale(0);
+          }
+          50% {
+            transform: scale(1.5);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
+        
+###### The transition classes that you have at your disposal are:
+
+* v-enter
+* v-enter-active
+* v-enter-to
+* v-leave
+* v-leave-active
+* v-leave-to
+
+*Animate.css is a popular animation library that works great with UI animations.*
+
+        <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
+                <p class="alert" v-if="errors.has('skill')">{{ errors.first('skill') }}</p>
+        </transition>
+        
+Add in CSS section  
+        
+        <style scoped>
+        @import "https://cdn.jsdelivr.net/npm/animate.css@3.5.1";
+        
+Animating Lists
+
+        <ul>
+          <transition-group name="list" enter-active-class="animated bounceInUp" leave-active-class="animated bounceOutDown">
+            <li v-for="(data, index) in skills" :key='index'>{{data.skill}}</li>
+          </transition-group>
+        </ul>
+        
+## Vue Router
+
+1. Add vue-router in your project
+        
+                npm add vue-router
+        
+2. Create a /src/router.js
+
+        import Vue from 'vue'
+        import Router from 'vue-router'
+        import Skills from './components/Skills.vue'
+        import About from './components/About.vue'
+
+        Vue.use(Router)
+
+        export default new Router({
+          routes: [
+            {
+              path: '/',
+              name: 'skills',
+              component: Skills
+            },
+            {
+              path: '/about',
+              name: 'about',
+              component: About
+            }
+          ]
+        })
+        
+ 3. Create About.vue file
+ 
+        <template>
+          <div class="about">
+            <h1>This is an about page</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ali...</p>
+          </div>
+        </template>
+        
+4. In /src/main.js and add the following:
+
+        import router from './router'
+
+        new Vue({
+          router,               // Add this line
+          render: h => h(App)
+        }).$mount('#app')
+        
+5. /src/App.vue file and modify the <template> section as shown:
+        
+        <template>
+          <div id="app">
+              <nav>
+                <router-link to="/">Home</router-link>
+                <router-link to="/about">About</router-link>
+              </nav>
+            <router-view/>
+          </div>
+        </template>
+      
 
         
  
