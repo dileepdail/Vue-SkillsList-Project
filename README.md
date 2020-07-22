@@ -100,7 +100,8 @@ A simple Skills List App in Vue JS
         <button v-on:click="changeName" v-bind:disabled="btnState">Change Name</button>
         
 4. Vue Directives  
-Here is a list of directives that you can use:
+
+*Here is a list of directives that you can use:*
 
 * v-text
 * v-html
@@ -115,6 +116,10 @@ Here is a list of directives that you can use:
 * v-pre
 * v-cloak
 * v-once
+
+## Vue Styling
+
+
 
 
  
