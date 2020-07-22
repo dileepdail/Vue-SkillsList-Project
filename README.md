@@ -346,6 +346,11 @@ Animating Lists
             <router-view/>
           </div>
         </template>
+        
+        
+ ## Error 
+ npm install vue-threejs
+ npm install --save dat.gui oimo three
       
 
         
