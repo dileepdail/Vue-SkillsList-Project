@@ -55,6 +55,68 @@ A simple Skills List App in Vue JS
 3. Run Project
     cd vue-skills  
     npm run serve
+    
+## Vue Templating
+
+###### Vue Interpolation
+
+1. Interpolation in Attributes
+
+        <template>
+          <div class="hello">
+           {{ name }}
+          </div>
+        </template>
+
+        <script>
+        export default {
+          name: 'Skills',
+          data() {
+            return {
+              name: 'Dileep'
+            }
+          }
+        }
+        </script>
+        
+2. Interpolation in Attributes
+
+        <button v-on:click="changeName" v-bind:disabled="btnState">Change Name</button>
+        
+        data() {
+            return {
+              name: 'Coursetro',
+              btnState: true       // Add this
+            }
+          },
+
+3. Expressions in Interpolation
+
+        <h1 v-once>{{name}}</h1>
+
+        <!-- Add this -->
+        {{ btnState ? 'The button is disabled' : 'The button is active'}}
+
+        <button v-on:click="changeName" v-bind:disabled="btnState">Change Name</button>
+        
+4. Vue Directives  
+Here is a list of directives that you can use:
+
+* v-text
+* v-html
+* v-show
+* v-if
+* v-else
+* v-else-if
+* v-for
+* v-on
+* v-bind
+* v-model
+* v-pre
+* v-cloak
+* v-once
+
+
  
  
 
