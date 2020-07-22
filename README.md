@@ -44,11 +44,17 @@ A simple Skills List App in Vue JS
       
 ###### Method 3: Installing Vue with the Vue CLI
 
-1. You first need to install the Vue CLI:
+1. You first need to install the Vue CLI:  
     npm install -g @vue/cli
     
-2. Create project
-    vue create vue-skills
+2. Create project  
+    vue create vue-skills  
+    choose default  
+    select npm
+
+3. Run Project
+    cd vue-skills  
+    npm run serve
  
  
 
