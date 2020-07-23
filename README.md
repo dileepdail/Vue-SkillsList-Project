@@ -1,6 +1,8 @@
 # Vue-SkillList-Project
 A simple Skills List App in Vue JS
 
+###### Credit: Gary Simon | Link: https://www.youtube.com/watch?v=78tNYZUS-ps
+
 ## Installing Vue
 
 ###### Method 1: Installing Vue through a CDN
@@ -347,13 +349,4 @@ Animating Lists
           </div>
         </template>
         
-        
- ## Error 
- npm install vue-threejs
- npm install --save dat.gui oimo three
-      
-
-        
  
- 
-
